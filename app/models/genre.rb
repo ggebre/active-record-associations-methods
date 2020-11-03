@@ -9,12 +9,15 @@ class Genre < ActiveRecord::Base
 
   def artist_count
     # return the number of artists associated with the genre
-    self.songs.select(:artist_id).distinct.size
+    # self.songs.select(:artist_id).distinct.size
+    self.artists.size
   end
 
   def all_artist_names
     # return an array of strings containing every musician's name
     # binding.pry
-    self.songs.select(:artist_id).distinct.map {|song| song.artist.name}
+    # self.songs.select(:artist_id).distinct.map {|song| song.artist.name}
+    
+    self.artists.map { |artist| artist.name}
   end
 end

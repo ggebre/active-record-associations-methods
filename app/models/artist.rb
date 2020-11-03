@@ -16,6 +16,7 @@ class Artist < ActiveRecord::Base
     #return the number of genres associated with the artist
    
     # self.songs.uniq
-    self.songs.select(:genre_id).distinct.size
+    self.genres.size
+    # self.songs.select(:genre_id).distinct.size
   end
 end
